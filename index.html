@@ -13,19 +13,19 @@
 
 	<h1>Postcard Calculator</h1>
 		<p>
-			<select>
+			<select class="countryDropdown">
         <option value="">Please select a country</option>
-        <option value="usa">USA</option>
-        <option value="australia">Australia</option>
-        <option value="belgium">Belgium</option>
-        <option value="canada">Canada</option>
-        <option value="denmark">Denmark</option>
-        <option value="eritrea">Eritrea</option>
+        <option value="0.44">USA</option>
+        <option value="1.15">Australia</option>
+        <option value="1.12">Belgium</option>
+        <option value="0.78">Canada</option>
+        <option value="1.35">Denmark</option>
+        <option value="0.85">Eritrea</option>
       </select>
-			<label for="uname"> = $ </label>
-			<input type="text" id="uname" name="uname" required minlength="4" maxlength="4" placeholder="" />
+			<span> = $ </span>
+			<input class="postcardCost" type="text" id="uname" name="uname" required minlength="4" maxlength="4" placeholder="" />
 				<span class="/card"></span>
-			<label for="uname"> /card </label>
+			<span> /card </span>
 		</p>
 		<p>
 			#
@@ -46,6 +46,24 @@
 			<span class="/card"></span>
 		</p>
 <hr align="left" size="3" width="30%" noshade/>
+<script>
 
+// 0. Create a variable that points to price per postcard input
+var pricePerPostcardInput;
+pricePerPostcardInput = window.document.querySelector(".postcardCost")
+// 1. Get country dropdown element and store that into a variable
+var countryDropdownElement;
+countryDropdownElement = window.document.querySelector(".countryDropdown")
+// 2. Get the value of postage of the currently selected country
+// 3. Put the value from 2 into the input at 0
+
+var displayNewPostagePrice = function () {
+	pricePerPostcardInput.value = countryDropdownElement.value
+	// 4. Run new price per postcard when country is changed
+};
+
+countryDropdownElement.addEventListener("change", displayNewPostagePrice)
+
+</script>
 </body>
 </html>
